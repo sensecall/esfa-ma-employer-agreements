@@ -42,79 +42,30 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+    <table class="govuk-table govuk-!-margin-bottom-8">
 
-    {{ govukTable({
-      classes: "govuk-!-margin-bottom-8",
-      caption: "Your organisations",
-      captionClasses: "govuk-heading-m",
-      head: [
-      {
-        text: "Organisation",
-        classes: 'govuk-!-width-one-third'
-      },
-      {
-        text: "Agreement status",
-        classes: 'govuk-!-width-one-quarter'
-      },
-      {
-        text: "",
-        classes: 'govuk-!-width-one-quarter'
-      }
-      ],
-      rows: [
-      [
-      {
-        text: "APLACE LIMITED"
-      },
-      {
-        text: "You have not accepted the latest agreement"
-      },
-      {
-        html: "<a href='agreements?name=APLACE LIMITED'>View agreements</a>"
-      }
-      ],
-      [
-      {
-        text: "ONE OTHER CO LTD"
-      },
-      {
-        text: "Signed by paul peterson"
-      },
-      {
-        html: "<a href='agreements?name=ONE OTHER CO LTD'>View agreements</a>"
-      }
-      ],
-      [
-      {
-        text: "ZZZ CORP"
-      },
-      {
-        text: "Signed by paul peterson"
-      },
-      {
-        html: "<a href='agreements?name=ZZZ CORP'>View agreements</a>"
-      }
-      ]
-      ]
-    }) }}
+      <caption class="govuk-table__caption govuk-heading-m">Your organisations</caption>
 
-    {% set accordionDescription_version3 %}
-    <p>
-      You have 6 organisations that have not signed this agreement yet.
-    </p>
-    <p class="govuk-caption-m">
-      This agreement was updated on 14 April 2020
-    </p>
-    {% endset %}
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Agreement status</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" colspan="2">Agreement ID</th>
+        </tr>
+      </thead>
 
-    {% set accordionDescription_other %}
-    <p>
-      All of your organisations have signed this agreement.
-    </p>
-    <p class="govuk-caption-m">
-      This agreement was updated on 14 April 2018
-    </p>
-    {% endset %}
+      <tbody class="govuk-table__body">
+        {% for organisation in range(0, (data['orgs-count'] or 3)) %}
+        {% set name = data['businesses'][data['random-businesses'][loop.index0]] %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{name}}</td>
+          <td class="govuk-table__cell">Signed by paul peterson</td>
+          <td class="govuk-table__cell">Y3EVEP</td>
+          <td class="govuk-table__cell"><a href="agreements?name={{name}}">View</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
     {{govukDetails({
       summaryText: "Transfers status: Enabled",
