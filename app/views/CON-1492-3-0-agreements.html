@@ -1,0 +1,344 @@
+{% extends "layout_das.html" %}
+
+{% set serviceName = "Manage apprenticeships" %}
+
+{% block beforeContent %}
+<!-- {{govukBackLink({
+  href: ""
+})}} -->
+
+{{ govukBreadcrumbs({
+  items: [
+  {
+    text: "Home",
+    href: "#"
+  },
+  {
+    text: "Your agreements",
+    href: "CON-1492-3-0-organisations"
+  },
+  {
+    text: data['name']
+  }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-l">{{data['name']}}</span>
+      Your ESFA agreements
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {% set pastDayHtml %}
+    <h2 class="govuk-heading-l">Latest agreement</h2>
+    <p>
+      This agreement allows you to spend funds for &APLACE LIMITED.
+    </p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    
+    <div class="govuk-grid-row agreement-parties">
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m section-heading">Parties</h2>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <p>
+          <b>The Secretary of State for Education acting through the Education and Skills Funding Agency an executive agency of the Department for Education</b>
+          <br>
+          Cheylesmore House<br>
+          Quinton Road<br>
+          Coventry<br>
+          CV1 2WT
+        </p>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row agreement-parties">
+      <div class="govuk-grid-column-one-third column-hide">&nbsp;</div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      </div>
+    </div>
+
+    <div class="govuk-grid-row agreement-parties">
+      <div class="govuk-grid-column-one-third column-hide">&nbsp;</div>
+
+      <div class="govuk-grid-column-one-third">
+        <p>
+          <strong>&amp;APLACE LIMITED</strong><br>
+          Unit A 10 Fashion Street<br>London<br>E1 6PX<br>
+          <p class="update-details">
+            <a href="/accounts/V4G7P7/organisations/review?HashedAgreementId=V8JR7B&amp;AccountLegalEntityPublicHashedId=Y3EVEP">Update these details</a>
+          </p>
+        </p>
+      </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m section-heading">Document</h2>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <div class="signed-agreement">
+          <section class="attachment embedded">
+            <div class="attachment-thumb">
+              <a aria-hidden="true" class="thumbnail" href="/accounts/V4G7P7/agreements/V8JR7B/view"><img alt="" src="https://accounts.test2-eas.apprenticeships.education.gov.uk/dist/images/pub-cover-html.png"></a>
+            </div>
+
+            <div class="attachment-details">
+              <h2 class="title"><a href="/accounts/V4G7P7/agreements/V8JR7B/view">Your ESFA agreement</a></h2>
+              <p class="metadata">
+                <span class="type">HTML</span>
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">This agreement has been accepted</h3>
+
+        {{ govukTable({
+          caption: "Dates and amounts",
+          firstCellIsHeader: true,
+          rows: [
+          [
+          {
+            text: "Accepted by:"
+          },
+          {
+            text: "paul peterson"
+          }
+          ],
+          [
+          {
+            text: "On behalf of:"
+          },
+          {
+            text: data['name']
+          }
+          ],
+          [
+          {
+            text: "Address:"
+          },
+          {
+            text: "Unit A 10 Fashion Street , London, E1 6PX"
+          }
+          ],
+          [
+          {
+            text: "Accepted on:"
+          },
+          {
+            text: "29 January 2020"
+          }
+          ]
+          ]
+        }) }}
+      </div>
+    </div>
+    {% endset -%}
+
+    {% set pastWeekHtml %}
+    <h2 class="govuk-heading-l">Past week</h2>
+    {{ govukTable({
+      head: [
+      {
+        text: "Case manager"
+      },
+      {
+        text: "Cases opened"
+      },
+      {
+        text: "Cases closed"
+      }
+      ],
+      rows: [
+      [
+      {
+        text: "David Francis"
+      },
+      {
+        text: "24"
+      },
+      {
+        text: "18"
+      }
+      ],
+      [
+      {
+        text: "Paul Farmer"
+      },
+      {
+        text: "16"
+      },
+      {
+        text: "20"
+      }
+      ],
+      [
+      {
+        text: "Rita Patel"
+      },
+      {
+        text: "24"
+      },
+      {
+        text: "27"
+      }
+      ]
+      ]
+    }) }}
+    {% endset -%}
+
+    {% set pastMonthHtml %}
+    <h2 class="govuk-heading-l">Past month</h2>
+    {{ govukTable({
+      head: [
+      {
+        text: "Case manager"
+      },
+      {
+        text: "Cases opened"
+      },
+      {
+        text: "Cases closed"
+      }
+      ],
+      rows: [
+      [
+      {
+        text: "David Francis"
+      },
+      {
+        text: "98"
+      },
+      {
+        text: "95"
+      }
+      ],
+      [
+      {
+        text: "Paul Farmer"
+      },
+      {
+        text: "122"
+      },
+      {
+        text: "131"
+      }
+      ],
+      [
+      {
+        text: "Rita Patel"
+      },
+      {
+        text: "126"
+      },
+      {
+        text: "142"
+      }
+      ]
+      ]
+    }) }}
+    {% endset -%}
+
+    {% set pastYearHtml %}
+    <h2 class="govuk-heading-l">Past year</h2>
+    {{ govukTable({
+      head: [
+      {
+        text: "Case manager"
+      },
+      {
+        text: "Cases opened"
+      },
+      {
+        text: "Cases closed"
+      }
+      ],
+      rows: [
+      [
+      {
+        text: "David Francis"
+      },
+      {
+        text: "1380"
+      },
+      {
+        text: "1472"
+      }
+      ],
+      [
+      {
+        text: "Paul Farmer"
+      },
+      {
+        text: "1129"
+      },
+      {
+        text: "1083"
+      }
+      ],
+      [
+      {
+        text: "Rita Patel"
+      },
+      {
+        text: "1539"
+      },
+      {
+        text: "1265"
+      }
+      ]
+      ]
+    }) }}
+    {% endset -%}
+
+    {{ govukTabs({
+      items: [
+      {
+        label: "Latest agreement",
+        id: "past-day",
+        panel: {
+        html: pastDayHtml
+      }
+    },
+    {
+      label: "Previous agreement (11 April 2019)",
+      id: "past-week",
+      panel: {
+      html: pastWeekHtml
+    }
+  },
+  {
+    label: "Previous agreement (4 April 2015)",
+    id: "past-month",
+    panel: {
+    html: pastMonthHtml
+  }
+}
+]
+}) }}
+</div>
+</div>
+
+{% endblock %}
