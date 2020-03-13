@@ -15,7 +15,7 @@
   },
   {
     text: "Your agreements",
-    href: "CON-1492-3-0-organisations"
+    href: "organisations"
   },
   {
     text: data['name']
@@ -40,7 +40,7 @@
     {% set pastDayHtml %}
     <h2 class="govuk-heading-l">Latest agreement</h2>
     <p>
-      This agreement allows you to spend funds for &APLACE LIMITED.
+      This agreement allows you to spend funds for <b>{{data['name']}}</b>.
     </p>
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
@@ -75,7 +75,7 @@
 
       <div class="govuk-grid-column-one-third">
         <p>
-          <strong>&amp;APLACE LIMITED</strong><br>
+          <strong>{{data['name']}}</strong><br>
           Unit A 10 Fashion Street<br>London<br>E1 6PX<br>
           <p class="update-details">
             <a href="/accounts/V4G7P7/organisations/review?HashedAgreementId=V8JR7B&amp;AccountLegalEntityPublicHashedId=Y3EVEP">Update these details</a>

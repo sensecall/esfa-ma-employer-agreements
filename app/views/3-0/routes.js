@@ -9,10 +9,20 @@ router.get('/', (req, res, next) => {
 	res.redirect(`/${req.version}/config`)
 })
 
-router.post('/config', (req, res, next) => {
-	let businessCount = req.session.data['orgs-count']
-	let allBusinessesCount = req.session.data['businesses'].length
+function createBusinessList(l, i) {
+	let x = Array.from({length: i}, () => Math.floor(Math.random() * l)).sort((a, b) => a - b)
+	return x
+}
 
-	req.session.data['random-businesses'] = Array.from({length: businessCount}, () => Math.floor(Math.random() * allBusinessesCount)).sort((a, b) => a - b);
+router.post('/config', (req, res, next) => {
+	req.session.data['random-businesses'] = createBusinessList(req.session.data['businesses'].length, req.session.data['orgs-count'])
 	res.redirect('organisations')
+})
+
+router.get('/organisations', (req, res, next) => {
+	if(! req.session.data['random-businesses']){
+		req.session.data['random-businesses'] = createBusinessList(req.session.data['businesses'].length, req.session.data['orgs-count'])
+	}
+
+	res.render(`${req.version}/organisations`)
 })

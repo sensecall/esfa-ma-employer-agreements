@@ -23,4 +23,6 @@ module.exports = {
 
   // Insert values here
   	'businesses': business_names,
+  	'orgs-count': 5,
+  	'name': 'Exoblue'
 }

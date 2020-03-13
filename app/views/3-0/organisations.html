@@ -55,7 +55,7 @@
       </thead>
 
       <tbody class="govuk-table__body">
-        {% for organisation in range(0, (data['orgs-count'] or 3)) %}
+        {% for organisation in range(0, data['orgs-count']) %}
         {% set name = data['businesses'][data['random-businesses'][loop.index0]] %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{name}}</td>
