@@ -37,8 +37,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    {% set pastDayHtml %}
-    <h2 class="govuk-heading-l">Latest agreement</h2>
+    {% set signedAgreementHtml %}
+    <h2 class="govuk-heading-l">[Agreement name]</h2>
     <p>
       This agreement allows you to spend funds for <b>{{data['name']}}</b>.
     </p>
@@ -157,188 +157,53 @@
     </div>
     {% endset -%}
 
-    {% set pastWeekHtml %}
-    <h2 class="govuk-heading-l">Past week</h2>
-    {{ govukTable({
-      head: [
-      {
-        text: "Case manager"
-      },
-      {
-        text: "Cases opened"
-      },
-      {
-        text: "Cases closed"
-      }
-      ],
-      rows: [
-      [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "24"
-      },
-      {
-        text: "18"
-      }
-      ],
-      [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "16"
-      },
-      {
-        text: "20"
-      }
-      ],
-      [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "24"
-      },
-      {
-        text: "27"
-      }
-      ]
-      ]
-    }) }}
-    {% endset -%}
+    {% set unsignedLatestAgreementHtml %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">About your latest agreement</h2>
+        <p>
+          This agreement creates a legal contract between London Academy and the Education and Skills Funding Agency (ESFA). It allows you to transfer funds to other employers and pay training providers for apprenticeships.
+        </p>
+        <p>
+          You need to ensure you have the authority from your organisation before you sign this agreement.
+        </p>
 
-    {% set pastMonthHtml %}
-    <h2 class="govuk-heading-l">Past month</h2>
-    {{ govukTable({
-      head: [
-      {
-        text: "Case manager"
-      },
-      {
-        text: "Cases opened"
-      },
-      {
-        text: "Cases closed"
-      }
-      ],
-      rows: [
-      [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "98"
-      },
-      {
-        text: "95"
-      }
-      ],
-      [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "122"
-      },
-      {
-        text: "131"
-      }
-      ],
-      [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "126"
-      },
-      {
-        text: "142"
-      }
-      ]
-      ]
-    }) }}
-    {% endset -%}
-
-    {% set pastYearHtml %}
-    <h2 class="govuk-heading-l">Past year</h2>
-    {{ govukTable({
-      head: [
-      {
-        text: "Case manager"
-      },
-      {
-        text: "Cases opened"
-      },
-      {
-        text: "Cases closed"
-      }
-      ],
-      rows: [
-      [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "1380"
-      },
-      {
-        text: "1472"
-      }
-      ],
-      [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "1129"
-      },
-      {
-        text: "1083"
-      }
-      ],
-      [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "1539"
-      },
-      {
-        text: "1265"
-      }
-      ]
-      ]
-    }) }}
-    {% endset -%}
+        <p>
+          <a href="existing-agreement-page" class="govuk-button">Continue to your agreement</a>
+        </p>
+      </div>
+    </div>
+    {% endset %}
 
     {{ govukTabs({
       items: [
       {
         label: "Latest agreement",
         id: "past-day",
-        panel: {
-        html: pastDayHtml
+        panel:
+        {
+          html: signedAgreementHtml if data['signed'] == 'true' else unsignedLatestAgreementHtml
+        }
+      },
+      {
+        label: "Previous agreement (11 April 2019)",
+        id: "past-week",
+        panel:
+        {
+          html: signedAgreementHtml
+        }
+      },
+      {
+        label: "Previous agreement (4 April 2015)",
+        id: "past-month",
+        panel:
+        {
+          html: signedAgreementHtml
+        }
       }
-    },
-    {
-      label: "Previous agreement (11 April 2019)",
-      id: "past-week",
-      panel: {
-      html: pastWeekHtml
-    }
-  },
-  {
-    label: "Previous agreement (4 April 2015)",
-    id: "past-month",
-    panel: {
-    html: pastMonthHtml
-  }
-}
-]
-}) }}
-</div>
+      ]
+    }) }}
+  </div>
 </div>
 
 {% endblock %}

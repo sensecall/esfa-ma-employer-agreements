@@ -34,8 +34,11 @@
       There is no restriction on the number of connected organisations you can add.
     </p>
 
-    <p>
-      <a href="#" class="govuk-button">Add a new organisation</a>
+    <p class="govuk-!-margin-bottom-4">
+      <a href="#" class="govuk-button govuk-!-margin-bottom-0">Add a new organisation</a>
+    </p>
+    <p class="govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+      <a href="#">Remove an organisation from your account</a>
     </p>
   </div>
 </div>
@@ -48,20 +51,21 @@
 
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Agreement status</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" colspan="2">Agreement ID</th>
+          <th scope="col" class="govuk-table__header">Organisation</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half">Agreement status</th>
+          <th scope="col" class="govuk-table__header" colspan="2">Agreement ID</th>
         </tr>
       </thead>
 
       <tbody class="govuk-table__body">
         {% for organisation in range(0, data['orgs-count']) %}
         {% set name = data['businesses'][data['random-businesses'][loop.index0]] %}
+        {% set x = true if loop.index != 1 %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{name}}</td>
-          <td class="govuk-table__cell">Signed by paul peterson</td>
-          <td class="govuk-table__cell">Y3EVEP</td>
-          <td class="govuk-table__cell"><a href="agreements?name={{name}}">View</a></td>
+          <td class="govuk-table__cell">{{"Signed by paul peterson" if x else "Latest agreement has not been signed"}}</td>
+          <td class="govuk-table__cell">{{"Y3EVEP" if x else "-"}}</td>
+          <td class="govuk-table__cell"><a href="agreements?name={{name}}&signed={{'true' if x else 'false'}}">View</a></td>
         </tr>
         {% endfor %}
       </tbody>
