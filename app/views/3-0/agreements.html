@@ -63,21 +63,9 @@ Employer agreements - Manage apprentices
           Coventry<br>
           CV1 2WT
         </p>
-      </div>
-    </div>
 
-    <div class="govuk-grid-row agreement-parties">
-      <div class="govuk-grid-column-one-third column-hide">&nbsp;</div>
-
-      <div class="govuk-grid-column-two-thirds">
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      </div>
-    </div>
 
-    <div class="govuk-grid-row agreement-parties">
-      <div class="govuk-grid-column-one-third column-hide">&nbsp;</div>
-
-      <div class="govuk-grid-column-one-third">
         <p>
           <strong>{{data['name']}}</strong><br>
           Unit A 10 Fashion Street<br>London<br>E1 6PX<br>
@@ -96,19 +84,15 @@ Employer agreements - Manage apprentices
       </div>
 
       <div class="govuk-grid-column-two-thirds">
-        <div class="signed-agreement">
-          <section class="attachment embedded">
-            <div class="attachment-thumb">
-              <a aria-hidden="true" class="thumbnail" href="/accounts/V4G7P7/agreements/V8JR7B/view"><img alt="" src="https://accounts.test2-eas.apprenticeships.education.gov.uk/dist/images/pub-cover-html.png"></a>
-            </div>
+        <div class="govuk-!-display-inline-block govuk-!-margin-right-4">
+          <a aria-hidden="true" href="#"><img alt="" width="90" src="/public/images/pub-cover-html.png" style="box-shadow:0 1px 1px #aaa, 0 0 0 4px #ddd;"></a>
+        </div>
 
-            <div class="attachment-details">
-              <h2 class="title"><a href="/accounts/V4G7P7/agreements/V8JR7B/view">Your ESFA agreement</a></h2>
-              <p class="metadata">
-                <span class="type">HTML</span>
-              </p>
-            </div>
-          </section>
+        <div class="govuk-!-display-inline-block" style="vertical-align: top">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-font-weight-regular"><a href="/accounts/V4G7P7/agreements/V8JR7B/view">Your ESFA agreement</a></h2>
+          <p class="govuk-body-s">
+            <span class="type">HTML</span>
+          </p>
         </div>
       </div>
     </div>
@@ -120,7 +104,6 @@ Employer agreements - Manage apprentices
         <h3 class="govuk-heading-m">This agreement has been accepted</h3>
 
         {{ govukTable({
-          caption: "Dates and amounts",
           firstCellIsHeader: true,
           rows: [
           [
@@ -164,7 +147,7 @@ Employer agreements - Manage apprentices
     {% set unsignedLatestAgreementHtml %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-l">About your latest agreement</h2>
+        <h2 class="govuk-heading-l">Latest agreement</h2>
         <p>
           This agreement creates a legal contract between London Academy and the Education and Skills Funding Agency (ESFA). It allows you to transfer funds to other employers and pay training providers for apprenticeships.
         </p>
