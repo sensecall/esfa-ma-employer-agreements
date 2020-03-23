@@ -68,7 +68,7 @@ Organisations - Manage apprentices
           <td class="govuk-table__cell">{{name}}</td>
           <td class="govuk-table__cell">{{"Accepted" if x else "Not accepted yet"}}</td>
           <td class="govuk-table__cell"><a href="agreements?name={{name}}&signed={{'true' if x else 'false'}}">View all agreements</a></td>
-          <td class="govuk-table__cell"><a href="remove?name={{name}}">Remove<span class="govuk-visually-hidden-"> organisation</span></a></td>
+          <td class="govuk-table__cell"><a href="remove?name={{name}}">Remove<span class="govuk-visually-hidden"> organisation</span></a></td>
         </tr>
         {% endfor %}
       </tbody>
