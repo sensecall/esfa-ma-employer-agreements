@@ -9,15 +9,19 @@
 
 {% block beforeContent %}
 {{ govukBreadcrumbs({
-	items: [
-	{
-		text: "Home",
-		href: "#"
-	},
-	{
-		text: pageName
-	}
-	]
+  items: [
+  {
+    text: "Home",
+    href: "#"
+  },
+  {
+    text: pageName,
+    href: "organisations"
+  },
+  {
+    text: "Remove organisation"
+  }
+  ]
 }) }}
 {% endblock %}
 
