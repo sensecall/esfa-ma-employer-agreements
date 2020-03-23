@@ -9,15 +9,15 @@
 
 {% block beforeContent %}
 {{ govukBreadcrumbs({
-  items: [
-  {
-    text: "Home",
-    href: "#"
-  },
-  {
-    text: pageName
-  }
-  ]
+	items: [
+	{
+		text: "Home",
+		href: "#"
+	},
+	{
+		text: pageName
+	}
+	]
 }) }}
 {% endblock %}
 
@@ -25,6 +25,16 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+		{{ govukErrorSummary({
+			titleText: "There is a problem",
+			errorList: [
+			{
+				text: "Select yes if you want to remove " + data['name'],
+				href: "#confirm-error"
+			}
+			]
+		}) }}
+
 		{% call govukFieldset({
 			legend:
 			{
@@ -38,8 +48,12 @@
 		</p>
 
 		{{ govukRadios({
-			idPrefix: "changed-name",
-			name: "changed-name",
+			idPrefix: "confirm-error",
+			name: "confirm-error",
+			errorMessage:
+			{
+				text: "Select yes if you want to remove " + data['name']
+			},
 			items: [
 			{
 				value: "yes",
