@@ -28,14 +28,13 @@ Organisations - Manage apprentices
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Your agreements
+      Your organisations and agreements
     </h1>
     <p>
-
-      Add each organisation that will contract with your training providers.
+      You must add each organisation that will contract with your training providers.
     </p>
     <p>
-      There is no restriction on the number of connected organisations you can add.
+      You can add as many connected organisations as you need to.
     </p>
 
     <p class="govuk-!-margin-bottom-4">
@@ -55,7 +54,7 @@ Organisations - Manage apprentices
 
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Organisation</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation name</th>
           <th scope="col" class="govuk-table__header">Latest agreement status</th>
           <th scope="col" class="govuk-table__header" colspan="2">Actions</th>
         </tr>
@@ -68,8 +67,8 @@ Organisations - Manage apprentices
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{name}}</td>
           <td class="govuk-table__cell">{{"Accepted" if x else "Not accepted yet"}}</td>
-          <td class="govuk-table__cell"><a href="remove?name={{name}}">Remove<span class="govuk-visually-hidden"> organisation</span></a></td>
           <td class="govuk-table__cell"><a href="agreements?name={{name}}&signed={{'true' if x else 'false'}}">View all agreements</a></td>
+          <td class="govuk-table__cell"><a href="remove?name={{name}}">Remove<span class="govuk-visually-hidden-"> organisation</span></a></td>
         </tr>
         {% endfor %}
       </tbody>
