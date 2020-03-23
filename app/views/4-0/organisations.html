@@ -40,7 +40,7 @@
     </p>
 
     <p class="govuk-!-margin-bottom-8">
-      <a href="#" class="govuk-button govuk-!-margin-bottom-0">Add a new organisation</a>
+      <a href="#" class="govuk-button govuk-!-margin-bottom-0">Add an organisation</a>
     </p>
   </div>
 </div>
@@ -67,15 +67,15 @@
           <td class="govuk-table__cell">{{name}}</td>
           <td class="govuk-table__cell">{{"Accepted" if x else "Not accepted yet"}}</td>
           <td class="govuk-table__cell"><a href="agreements?name={{name}}&signed={{'true' if x else 'false'}}">View all agreements</a></td>
-          <td class="govuk-table__cell"><a href="remove?name={{name}}">Remove<span class="govuk-visually-hidden"> organisation</span></a></td>
+          <td class="govuk-table__cell"><a href="remove?name={{name}}">Remove organisation</a></td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
 
     {{govukDetails({
-      summaryText: "Transfers status: Enabled",
-      text: "You must sign the most up-to-date agreement for all organisations to use transfers functionality."
+      summaryText: "How transfers status is worked out",
+      text: "Transfers are enabled if all the organisations in your account have accepted the latest agreement."
     })}}
   </div>
 </div>
