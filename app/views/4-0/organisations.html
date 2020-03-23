@@ -49,15 +49,15 @@ Organisations - Manage apprentices
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <table class="govuk-table govuk-!-margin-bottom-8">
+    <table class="govuk-table govuk-!-font-size- govuk-!-margin-bottom-8">
 
       <caption class="govuk-table__caption govuk-heading-l govuk-visually-hidden">Organisations</caption>
 
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Organisation</th>
-          <th scope="col" class="govuk-table__header" colspan="2">Agreement status</th>
-          <!-- <th scope="col" class="govuk-table__header" colspan="2">Agreement ID</th> -->
+          <th scope="col" class="govuk-table__header">Latest agreement status</th>
+          <th scope="col" class="govuk-table__header" colspan="2">Actions</th>
         </tr>
       </thead>
 
@@ -67,9 +67,9 @@ Organisations - Manage apprentices
         {% set x = true if loop.index != 1 %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{name}}</td>
-          <td class="govuk-table__cell">{{"Signed by paul peterson" if x else "Latest agreement has not been signed"}}</td>
-          <!-- <td class="govuk-table__cell">{{"Y3EVEP" if x else "-"}}</td> -->
-          <td class="govuk-table__cell"><a href="agreements?name={{name}}&signed={{'true' if x else 'false'}}">View agreements</a></td>
+          <td class="govuk-table__cell">{{"Accepted" if x else "Not accepted yet"}}</td>
+          <td class="govuk-table__cell"><a href="remove?name={{name}}">Remove<span class="govuk-visually-hidden"> organisation</span></a></td>
+          <td class="govuk-table__cell"><a href="agreements?name={{name}}&signed={{'true' if x else 'false'}}">View all agreements</a></td>
         </tr>
         {% endfor %}
       </tbody>
