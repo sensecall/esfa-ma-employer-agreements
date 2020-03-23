@@ -2,6 +2,8 @@
 
 {% set serviceName = "Manage apprenticeships" %}
 
+{% set pageName = "Your agreements with the Education and Skills Funding Agency (ESFA)" %}
+
 {% block pageTitle %}
 Employer agreements - Manage apprentices
 {% endblock %}
@@ -33,7 +35,7 @@ Employer agreements - Manage apprentices
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
       <span class="govuk-caption-l">{{data['name']}}</span>
-      Your ESFA agreements
+      {{pageName}}
     </h1>
   </div>
 </div>
@@ -147,16 +149,19 @@ Employer agreements - Manage apprentices
     {% set unsignedLatestAgreementHtml %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-l">Latest agreement</h2>
+        <h2 class="govuk-heading-l">
+        Latest agreement
+        <span class="govuk-caption-m">Published 9 January 2020</span>
+      </h2>
         <p>
-          This agreement creates a legal contract between London Academy and the Education and Skills Funding Agency (ESFA). It allows you to transfer funds to other employers and pay training providers for apprenticeships.
+          The employer agreement is between {{data['name']}} and ESFA.
         </p>
         <p>
-          You need to ensure you have the authority from your organisation before you sign this agreement.
+          It sets out the terms for use of the Apprenticeship Service for employers who wish to access funding through the Apprenticeship Service.
         </p>
 
         <p>
-          <a href="existing-agreement-page" class="govuk-button">Continue to your agreement</a>
+          <a href="existing-agreement-page" class="govuk-button">View agreement</a>
         </p>
       </div>
     </div>

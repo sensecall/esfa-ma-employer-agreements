@@ -1,8 +1,10 @@
 {% extends "layout_das.html" %}
 {% set serviceName = "Manage apprenticeships" %}
 
+{% set pageName = "Your organisations and agreements" %}
+
 {% block pageTitle %}
-Organisations - Manage apprentices
+{{pageName}} - Manage apprentices
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,7 +19,7 @@ Organisations - Manage apprentices
     href: "#"
   },
   {
-    text: "Your agreements"
+    text: pageName
   }
   ]
 }) }}
@@ -28,7 +30,7 @@ Organisations - Manage apprentices
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Your organisations and agreements
+      {{pageName}}
     </h1>
     <p>
       You must add each organisation that will contract with your training providers.
@@ -37,11 +39,8 @@ Organisations - Manage apprentices
       You can add as many connected organisations as you need to.
     </p>
 
-    <p class="govuk-!-margin-bottom-4">
+    <p class="govuk-!-margin-bottom-8">
       <a href="#" class="govuk-button govuk-!-margin-bottom-0">Add a new organisation</a>
-    </p>
-    <p class="govuk-!-margin-top-0 govuk-!-margin-bottom-8">
-      <a href="#">Remove an organisation from your account</a>
     </p>
   </div>
 </div>
@@ -55,8 +54,8 @@ Organisations - Manage apprentices
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation name</th>
-          <th scope="col" class="govuk-table__header">Latest agreement status</th>
-          <th scope="col" class="govuk-table__header" colspan="2">Actions</th>
+          <th scope="col" class="govuk-table__header" colspan="3">Latest agreement status</th>
+          <!-- <th scope="col" class="govuk-table__header" colspan="2">Actions</th> -->
         </tr>
       </thead>
 
