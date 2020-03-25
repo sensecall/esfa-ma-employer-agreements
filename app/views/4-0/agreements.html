@@ -47,7 +47,9 @@ Employer agreements - Manage apprentices
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-l">
-          Agreement between an employer and the Education and Skills Funding Agency (ESFA)
+          ESFA Apprenticeship Agreement for Employers<span class="govuk-visually-hidden">: </span>
+          <strong class="govuk-tag govuk-tag--green govuk-!-display-inline-block govuk-!-margin-left-1" style="vertical-align: middle">accepted</strong>
+          <span class="govuk-caption-m">Published [[DATE]]</span>
         </h2>
         <p>
           This agreement allows you to spend funds for <b>{{data['name']}}</b>.
@@ -164,7 +166,8 @@ Employer agreements - Manage apprentices
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-l">
-          Latest agreement <strong class="govuk-tag govuk-tag--red govuk-!-display-inline-block govuk-!-margin-left-1" style="vertical-align: middle">not accepted yet</strong>
+          Agreement between an employer and ESFA<span class="govuk-visually-hidden">: </span>
+          <strong class="govuk-tag govuk-tag--red govuk-!-display-inline-block govuk-!-margin-left-1" style="vertical-align: middle">not accepted yet</strong>
           <span class="govuk-caption-m">Published 9 January 2020</span>
         </h2>
 
@@ -185,34 +188,43 @@ Employer agreements - Manage apprentices
     </div>
     {% endset %}
 
-    {{ govukTabs({
-      items: [
-      {
-        label: "Latest agreement",
-        id: "past-day",
-        panel:
-        {
-          html: signedAgreementHtml if data['signed'] == 'true' else unsignedLatestAgreementHtml
-        }
-      },
-      {
-        label: "Agreement published on 1 May 2018",
-        id: "past-week",
-        panel:
-        {
-          html: signedAgreementHtml
-        }
-      },
-      {
-        label: "Agreement published on 1 May 2017",
-        id: "past-month",
-        panel:
-        {
-          html: signedAgreementHtml
-        }
-      }
-      ]
-    }) }}
+    <div class="govuk-tabs das-tabs das-tabs--small" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+
+      <ul class="govuk-tabs__list" role="tablist">        
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+          <a class="govuk-tabs__tab" href="#past-day" id="tab_past-day" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">
+            <span class="govuk-visually-hidden">Agreement </span><span style="text-transform: uppercase;">p</span>ublished 9 January 2020</span>
+          </a>
+        </li>
+
+        <li class="govuk-tabs__list-item" role="presentation">
+          <a class="govuk-tabs__tab" href="#past-week" id="tab_past-week" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">
+            <span class="govuk-visually-hidden">Agreement </span><span style="text-transform: uppercase;">p</span>ublished 1 May 2018
+          </a>
+        </li>
+
+        <li class="govuk-tabs__list-item" role="presentation">
+          <a class="govuk-tabs__tab" href="#past-month" id="tab_past-month" role="tab" aria-controls="past-month" aria-selected="false" tabindex="-1">
+            <span class="govuk-visually-hidden">Agreement </span><span style="text-transform: uppercase;">p</span>ublished 1 May 2017
+          </a>
+        </li>
+      </ul>
+
+      <div class="govuk-tabs__panel" id="past-day" role="tabpanel" aria-labelledby="tab_past-day">        
+        {{signedAgreementHtml | safe if data['signed'] == 'true' else unsignedLatestAgreementHtml | safe}}
+      </div>
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week" role="tabpanel" aria-labelledby="tab_past-week">
+        {{signedAgreementHtml | safe}}    
+      </div>    
+      
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month" role="tabpanel" aria-labelledby="tab_past-month">
+        {{signedAgreementHtml | safe}}
+      </div>
+    </div>
   </div>
 </div>
 
