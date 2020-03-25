@@ -46,11 +46,15 @@ Employer agreements - Manage apprentices
     {% set signedAgreementHtml %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-l">
+        <p class="govuk-!-margin-0">
+          <strong class="govuk-tag govuk-tag--green govuk-!-font-size-19" style="vertical-align: middle"><span class="govuk-visually-hidden">This agreement was </span>accepted on 28 January 2019<span class="govuk-visually-hidden">.</span></strong>
+        </p>
+
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-4">
           ESFA Apprenticeship Agreement for Employers<span class="govuk-visually-hidden">: </span>
-          <strong class="govuk-tag govuk-tag--green govuk-!-display-inline-block govuk-!-margin-left-1" style="vertical-align: middle">accepted</strong>
           <span class="govuk-caption-m">Published [[DATE]]</span>
         </h2>
+
         <p>
           This agreement allows you to spend funds for <b>{{data['name']}}</b>.
         </p>
@@ -58,7 +62,7 @@ Employer agreements - Manage apprentices
     </div>
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-    
+
     <div class="govuk-grid-row agreement-parties">
       <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m section-heading">Parties</h2>
@@ -165,9 +169,12 @@ Employer agreements - Manage apprentices
     {% set unsignedLatestAgreementHtml %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-!-margin-0">
+          <strong class="govuk-tag govuk-tag--red govuk-!-font-size-19" style="vertical-align: middle"><span class="govuk-visually-hidden">This agreement has </span>not <span class="govuk-visually-hidden">been </span>accepted yet<span class="govuk-visually-hidden">.</span></strong>
+        </p>
+
         <h2 class="govuk-heading-l">
           Agreement between an employer and ESFA<span class="govuk-visually-hidden">: </span>
-          <strong class="govuk-tag govuk-tag--red govuk-!-display-inline-block govuk-!-margin-left-1" style="vertical-align: middle">not accepted yet</strong>
           <span class="govuk-caption-m">Published 9 January 2020</span>
         </h2>
 
@@ -220,7 +227,7 @@ Employer agreements - Manage apprentices
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week" role="tabpanel" aria-labelledby="tab_past-week">
         {{signedAgreementHtml | safe}}    
       </div>    
-      
+
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month" role="tabpanel" aria-labelledby="tab_past-month">
         {{signedAgreementHtml | safe}}
       </div>
