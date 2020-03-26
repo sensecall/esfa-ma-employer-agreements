@@ -55,6 +55,10 @@ Employer agreements - Manage apprentices
           <span class="govuk-caption-m">Published [[DATE]]</span>
         </h2>
 
+        {{ govukInsetText({
+          html: "This is a variation of the agreement that we published 1 May 2017.<br>We updated it to add clause 7 (transfer of funding)."
+        }) }}
+
         <p>
           This agreement allows you to spend funds for <b>{{data['name']}}</b>.
         </p>
